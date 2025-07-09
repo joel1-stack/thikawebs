@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | Cutting Edge Barbershop & Spa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same CSS as index.html */
+        .booking-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .submit-btn {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #c19b2c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Cutting Edge</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="booking.html">Book Now</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="booking">
+        <h2 class="section-title">Book an Appointment</h2>
+        <div class="booking-form">
+            <form action="https://formspree.io/f/wathithifaith36@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a Service</option>
+                        <option value="Full Body Massage">Full Body Massage (KSh 3000)</option>
+                        <option value="Swedish Massage">Swedish Massage (KSh 2500)</option>
+                        <option value="Head Massage">Head Massage (KSh 1500)</option>
+                        <option value="Pedicure">Pedicure (KSh 1000)</option>
+                        <option value="Manicure">Manicure (KSh 500)</option>
+                        <option value="Shaving">Shaving (Adult: KSh 300 | Student: KSh 200 | Kid: KSh 150)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2023 Cutting Edge Barbershop & Spa. All rights reserved.</p>
+        <p>Thika Greens Phase 1, Opposite Edipark Plaza</p>
+        <p>Phone: <a href="tel:0703753568">0703 753 568</a></p>
+    </footer>
+</body>
+</html>
+<!-- Add this to the booking form -->
+<div class="form-group">
+    <label>Payment Method</label>
+    <select id="payment-method" required>
+        <option value="">Select payment</option>
+        <option value="mpesa">M-Pesa</option>
+        <option value="cash">Pay at Salon</option>
+    </select>
+</div>
+
+<!-- M-Pesa Payment Button (hidden by default) -->
+<button id="mpesa-btn" style="display: none;" class="submit-btn">
+    Pay via M-Pesa
+</button>
+
+<script>
+    // M-Pesa Payment Logic (Simulated API Call)
+    document.getElementById('payment-method').addEventListener('change', function() {
+        const mpesaBtn = document.getElementById('mpesa-btn');
+        if (this.value === 'mpesa') {
+            mpesaBtn.style.display = 'block';
+        } else {
+            mpesaBtn.style.display = 'none';
+        }
+    });
+
+    document.getElementById('mpesa-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert("M-Pesa prompt sent to 0703753568. Complete payment to confirm booking!");
+        // In production, use Paystack/Flutterwave API: https://developers.paystack.co/
+    });
+</script>

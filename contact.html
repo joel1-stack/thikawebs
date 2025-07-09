@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Cutting Edge Barbershop & Spa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same CSS as index.html */
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Cutting Edge</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="booking.html">Book Now</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-info">
+            <h3>Visit Us</h3>
+            <p>Thika Greens Phase 1, Opposite Edipark Plaza</p>
+            <h3>Call Us</h3>
+            <p><a href="tel:0703753568">0703 753 568</a></p>
+            <h3>Email Us</h3>
+            <p><a href="mailto:wathithifaith36@gmail.com">wathithifaith36@gmail.com</a></p>
+            <h3>Opening Hours</h3>
+            <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+            <p>Sunday: 10:00 AM - 6:00 PM</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2023 Cutting Edge Barbershop & Spa. All rights reserved.</p>
+        <p>Thika Greens Phase 1, Opposite Edipark Plaza</p>
+        <p>Phone: <a href="tel:0703753568">0703 753 568</a></p>
+    </footer>
+</body>
+</html>
+<!-- Add this to the contact section -->
+<div id="map" style="height: 400px; width: 100%; margin: 2rem 0;"></div>
+
+<script>
+    function initMap() {
+        const location = { lat: -1.0455, lng: 37.0696 }; // Coordinates for Thika Greens
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location,
+        });
+        new google.maps.Marker({ position: location, map: map });
+    }
+</script>
